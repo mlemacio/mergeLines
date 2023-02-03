@@ -9,8 +9,7 @@
 #include <vector>
 
 // RapidJSON
-#include "rapidjson/
-#include "rapidjson.h"
+#include "include/rapidjson/rapidjson.h"
 
 using namespace rapidjson;
 using namespace mac;
