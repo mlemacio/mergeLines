@@ -4,9 +4,9 @@
 #include <vector>
 #include <cstddef>
 
-#include "take_home_test/deserialize.h"
-#include "take_home_test/serialize.h"
-#include "take_home_test/lineMerger.h"
+#include "deserialize/deserialize.h"
+#include "serialize/serialize.h"
+#include "lineMerger/lineMerger.h"
 
 using namespace std::chrono;
 

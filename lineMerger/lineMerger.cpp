@@ -1,6 +1,4 @@
-#include "take_home_test/lineMerger.h"
-
-#include <iostream>
+#include "lineMerger.h"
 
 namespace mac
 {
