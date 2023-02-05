@@ -10,8 +10,6 @@
 // STL
 #include <string>
 
-#include "helpers/helpers.h"
+void deserialize_from_string(std::string const& json_data);
 
-std::vector<mac::lineSegment_t> deserialize_from_file(const std::string &file_name);
-
-#endif // TAKE_HOME_TEST_DESERIALIZE_H
+#endif //TAKE_HOME_TEST_DESERIALIZE_H
