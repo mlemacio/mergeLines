@@ -3,7 +3,7 @@ import pylab as pl
 import numpy as np
 import json
 
-f = open('./test/assets/1-split.json')
+f = open('../test/assets/1-split.json')
 data = json.load(f)
 
 coords = []
@@ -38,10 +38,8 @@ for i in range(0, num_pairs):
     a.append(second['end'][0])
     b.append(second['end'][1])
 
+# Just check out the first 10
 subset = coords[0:10]
-for i in subset:
-    print(i)
-
 
 c = np.array([(1, 0, 0, 1), (0, 1, 0, 1), (0, 0, 1, 1), (0, 1, 1, 0)])
 
