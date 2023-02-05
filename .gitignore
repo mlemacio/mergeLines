@@ -1,1 +1,2 @@
-*bazel-*
+*make*
+!CMakeLists.txt

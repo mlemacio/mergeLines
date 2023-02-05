@@ -10,6 +10,18 @@
 // STL
 #include <string>
 
-void deserialize_from_string(std::string const& json_data);
+struct coord_t
+{
+    double x;
+    double y;
+};
 
-#endif //TAKE_HOME_TEST_DESERIALIZE_H
+struct lineSegment_t
+{
+    coord_t left;
+    coord_t right;
+};
+
+std::vector<lineSegment_t> deserialize_from_file(const std::string &file_name);
+
+#endif // TAKE_HOME_TEST_DESERIALIZE_H

@@ -6,6 +6,7 @@
 
 // STL
 #include <string>
+#include <vector>
 
 // RapidJSON
 #include "document.h"
@@ -38,8 +39,17 @@ void deserialize(Document& doc) {
     }
 }
 
-void deserialize_from_string(std::string const &json_data){
-    Document doc;
-    doc.Parse(json_data.c_str());
-    deserialize(doc);
+std::vector<lineSegment_t> deserialize_from_file(const std::string &file_name)
+{
+    FILE *fp = fopen(file_name.c_str(), "r");
+
+    char readBuffer[65536];
+    FileReadStream is(fp, readBuffer, sizeof(readBuffer));
+
+    Document d;
+    d.ParseStream(is);
+
+    fclose(fp);
+
+    return deserialize(d);
 }

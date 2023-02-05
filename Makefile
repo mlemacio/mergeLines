@@ -127,17 +127,43 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named take_home_test_library
+# Target rules for targets named helpers_library
 
 # Build rule for target.
-take_home_test_library: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 take_home_test_library
-.PHONY : take_home_test_library
+helpers_library: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 helpers_library
+.PHONY : helpers_library
 
 # fast build rule for target.
-take_home_test_library/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/take_home_test_library.dir/build.make CMakeFiles/take_home_test_library.dir/build
-.PHONY : take_home_test_library/fast
+helpers_library/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helpers_library.dir/build.make CMakeFiles/helpers_library.dir/build
+.PHONY : helpers_library/fast
+
+#=============================================================================
+# Target rules for targets named serialize_library
+
+# Build rule for target.
+serialize_library: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 serialize_library
+.PHONY : serialize_library
+
+# fast build rule for target.
+serialize_library/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/serialize_library.dir/build.make CMakeFiles/serialize_library.dir/build
+.PHONY : serialize_library/fast
+
+#=============================================================================
+# Target rules for targets named deserialize_library
+
+# Build rule for target.
+deserialize_library: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 deserialize_library
+.PHONY : deserialize_library
+
+# fast build rule for target.
+deserialize_library/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/deserialize_library.dir/build.make CMakeFiles/deserialize_library.dir/build
+.PHONY : deserialize_library/fast
 
 #=============================================================================
 # Target rules for targets named take_home_test
@@ -165,30 +191,6 @@ unit_tests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/build
 .PHONY : unit_tests/fast
 
-source/deserialize.o: source/deserialize.cpp.o
-.PHONY : source/deserialize.o
-
-# target to build an object file
-source/deserialize.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/take_home_test_library.dir/build.make CMakeFiles/take_home_test_library.dir/source/deserialize.cpp.o
-.PHONY : source/deserialize.cpp.o
-
-source/deserialize.i: source/deserialize.cpp.i
-.PHONY : source/deserialize.i
-
-# target to preprocess a source file
-source/deserialize.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/take_home_test_library.dir/build.make CMakeFiles/take_home_test_library.dir/source/deserialize.cpp.i
-.PHONY : source/deserialize.cpp.i
-
-source/deserialize.s: source/deserialize.cpp.s
-.PHONY : source/deserialize.s
-
-# target to generate assembly for a file
-source/deserialize.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/take_home_test_library.dir/build.make CMakeFiles/take_home_test_library.dir/source/deserialize.cpp.s
-.PHONY : source/deserialize.cpp.s
-
 source/main.o: source/main.cpp.o
 .PHONY : source/main.o
 
@@ -212,6 +214,78 @@ source/main.s: source/main.cpp.s
 source/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/take_home_test.dir/build.make CMakeFiles/take_home_test.dir/source/main.cpp.s
 .PHONY : source/main.cpp.s
+
+source/take_home_test/deserialize.o: source/take_home_test/deserialize.cpp.o
+.PHONY : source/take_home_test/deserialize.o
+
+# target to build an object file
+source/take_home_test/deserialize.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/deserialize_library.dir/build.make CMakeFiles/deserialize_library.dir/source/take_home_test/deserialize.cpp.o
+.PHONY : source/take_home_test/deserialize.cpp.o
+
+source/take_home_test/deserialize.i: source/take_home_test/deserialize.cpp.i
+.PHONY : source/take_home_test/deserialize.i
+
+# target to preprocess a source file
+source/take_home_test/deserialize.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/deserialize_library.dir/build.make CMakeFiles/deserialize_library.dir/source/take_home_test/deserialize.cpp.i
+.PHONY : source/take_home_test/deserialize.cpp.i
+
+source/take_home_test/deserialize.s: source/take_home_test/deserialize.cpp.s
+.PHONY : source/take_home_test/deserialize.s
+
+# target to generate assembly for a file
+source/take_home_test/deserialize.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/deserialize_library.dir/build.make CMakeFiles/deserialize_library.dir/source/take_home_test/deserialize.cpp.s
+.PHONY : source/take_home_test/deserialize.cpp.s
+
+source/take_home_test/helpers.o: source/take_home_test/helpers.cpp.o
+.PHONY : source/take_home_test/helpers.o
+
+# target to build an object file
+source/take_home_test/helpers.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helpers_library.dir/build.make CMakeFiles/helpers_library.dir/source/take_home_test/helpers.cpp.o
+.PHONY : source/take_home_test/helpers.cpp.o
+
+source/take_home_test/helpers.i: source/take_home_test/helpers.cpp.i
+.PHONY : source/take_home_test/helpers.i
+
+# target to preprocess a source file
+source/take_home_test/helpers.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helpers_library.dir/build.make CMakeFiles/helpers_library.dir/source/take_home_test/helpers.cpp.i
+.PHONY : source/take_home_test/helpers.cpp.i
+
+source/take_home_test/helpers.s: source/take_home_test/helpers.cpp.s
+.PHONY : source/take_home_test/helpers.s
+
+# target to generate assembly for a file
+source/take_home_test/helpers.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helpers_library.dir/build.make CMakeFiles/helpers_library.dir/source/take_home_test/helpers.cpp.s
+.PHONY : source/take_home_test/helpers.cpp.s
+
+source/take_home_test/serialize.o: source/take_home_test/serialize.cpp.o
+.PHONY : source/take_home_test/serialize.o
+
+# target to build an object file
+source/take_home_test/serialize.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/serialize_library.dir/build.make CMakeFiles/serialize_library.dir/source/take_home_test/serialize.cpp.o
+.PHONY : source/take_home_test/serialize.cpp.o
+
+source/take_home_test/serialize.i: source/take_home_test/serialize.cpp.i
+.PHONY : source/take_home_test/serialize.i
+
+# target to preprocess a source file
+source/take_home_test/serialize.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/serialize_library.dir/build.make CMakeFiles/serialize_library.dir/source/take_home_test/serialize.cpp.i
+.PHONY : source/take_home_test/serialize.cpp.i
+
+source/take_home_test/serialize.s: source/take_home_test/serialize.cpp.s
+.PHONY : source/take_home_test/serialize.s
+
+# target to generate assembly for a file
+source/take_home_test/serialize.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/serialize_library.dir/build.make CMakeFiles/serialize_library.dir/source/take_home_test/serialize.cpp.s
+.PHONY : source/take_home_test/serialize.cpp.s
 
 test/tests.o: test/tests.cpp.o
 .PHONY : test/tests.o
@@ -246,15 +320,23 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... deserialize_library"
+	@echo "... helpers_library"
+	@echo "... serialize_library"
 	@echo "... take_home_test"
-	@echo "... take_home_test_library"
 	@echo "... unit_tests"
-	@echo "... source/deserialize.o"
-	@echo "... source/deserialize.i"
-	@echo "... source/deserialize.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"
+	@echo "... source/take_home_test/deserialize.o"
+	@echo "... source/take_home_test/deserialize.i"
+	@echo "... source/take_home_test/deserialize.s"
+	@echo "... source/take_home_test/helpers.o"
+	@echo "... source/take_home_test/helpers.i"
+	@echo "... source/take_home_test/helpers.s"
+	@echo "... source/take_home_test/serialize.o"
+	@echo "... source/take_home_test/serialize.i"
+	@echo "... source/take_home_test/serialize.s"
 	@echo "... test/tests.o"
 	@echo "... test/tests.i"
 	@echo "... test/tests.s"
