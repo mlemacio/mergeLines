@@ -5,12 +5,10 @@ When working on this, I soon realized how helpful it would be to visualize the i
 
 
 ![My Image](visualize/split_vs_joined_visualized_1.png)
-This first example here illustrates a small demo version of this problem, in the graph on the left, each pair of dots represents a distinct line, and for the sake of example, each line has a corresponding line it can merge with. The graph on the left represents the result of merging all the lines
+This first example here illustrates a small demo version of this problem, in the graph on the left, each pair of dots represents a distinct line, and for the sake of example, each line has a corresponding line it can merge with. The graph on the left  represents the result of merging all the lines
 
-
-
-
-
+\n
+\n
 
 ![My Image](visualize/expected_vs_actual_visualized.png)
 The graph on the left represents the expected output after merging all the lines given in test/assets/1-split.json and the graph on the right represents the output of processing the input through the line merger. This is by no means conclusive evidence the merger works, but it does give us a quick thumbs up that we're roughly in the right ballpark. 
