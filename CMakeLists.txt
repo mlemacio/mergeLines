@@ -28,11 +28,16 @@ set(B_LIBRARY_HEADERS include/take_home_test/deser.h)
 
 add_library(deser_library ${B_LIBRARY_SOURCES} ${B_LIBRARY_HEADERS})
 
+set(C_LIBRARY_SOURCES source/take_home_test/line_merger.cpp)
+set(C_LIBRARY_HEADERS include/take_home_test/line_merger.h)
+
+add_library(line_merger_library ${C_LIBRARY_SOURCES} ${C_LIBRARY_HEADERS})
+
 # exec sources go here
 set(EXEC_SOURCES source/main.cpp)
 
 add_executable(take_home_test ${EXEC_SOURCES})
-target_link_libraries(take_home_test helpers_library deser_library)
+target_link_libraries(take_home_test helpers_library deser_library line_merger_library)
 
 # Tests
 enable_testing()
