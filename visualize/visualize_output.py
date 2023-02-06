@@ -1,44 +1,45 @@
 from matplotlib import collections as mc
-import pylab as pl
+import matplotlib.pyplot as plt
 import numpy as np
 import json
 
-f = open('../test/assets/1-reference.json')
-data = json.load(f)
+EXPECTED_OUTPUT_FILE = '../test/assets/1-reference.json'
+ACTUAL_OUTPUT_FILE = '../test/assets/1-output.json'
 
-coords = []
+fig, ax = plt.subplots(1, 2)
+ax[0].set_title("EXPECTED")
+ax[1].set_title("ACTUAL")
 
-x = []
-y = []
-for i in range(0, len(data["lines"])):
-    first = data["lines"][i]
+for idx, file_name in enumerate([EXPECTED_OUTPUT_FILE, ACTUAL_OUTPUT_FILE]):
+    ax_to_use = ax[idx]
 
-    first_coord = [(first['start'][0], first['start'][1]),
-                   (first['end'][0], first['end'][1])]
+    file = open(file_name)
+    data = json.load(file)
 
-    coords.append([first_coord])
-    x.append(first['start'][0])
-    y.append(first['start'][1])
+    lines = []
+    x = []
+    y = []
 
-    x.append(first['end'][0])
-    y.append(first['end'][1])
+    for i in range(0, len(data["lines"])):
+        curr_line_json = data["lines"][i]
 
+        curr_line = [(curr_line_json['start'][0], curr_line_json['start'][1]),
+                    (curr_line_json['end'][0], curr_line_json['end'][1])]
 
-subset = coords[0:10]
+        lines.append([curr_line])
+        x.append(curr_line_json['start'][0])
+        y.append(curr_line_json['start'][1])
 
-c = np.array([(1, 0, 0, 1), (0, 1, 0, 1), (0, 0, 1, 1), (0, 1, 1, 0)])
+        x.append(curr_line_json['end'][0])
+        y.append(curr_line_json['end'][1])
 
+    for line in lines:
+        lc = mc.LineCollection(line, linewidths=1, color='black')
+        ax_to_use.add_collection(lc)
 
-fig, ax = pl.subplots()
+    ax_to_use.autoscale()
+    ax_to_use.margins(0.1)
+    ax_to_use.plot(x, y, 'o', color='red')
 
-for i in subset:
-    lc = mc.LineCollection(i, colors=c, linewidths=2, color='black')
-    ax.add_collection(lc)
-
-ax.autoscale()
-ax.margins(0.1)
-pl.plot(x[0:20], y[0:20], 'o', color='red')
-
-
-
-pl.show()
+plt.tight_layout()
+plt.show()
