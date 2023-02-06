@@ -1,2 +1,5 @@
 *make*
 !CMakeLists.txt
+*.a
+take_home_test
+unit_tests

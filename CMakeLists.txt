@@ -18,26 +18,21 @@ include_directories(include/rapidjson/internal)
 include_directories(include/take_home_test)
 
 # Your library sources go here
-set(LIBRARY_SOURCES source/take_home_test/helpers.cpp)
-set(LIBRARY_HEADERS include/take_home_test/helpers.h)
+set(A_LIBRARY_SOURCES source/take_home_test/helpers.cpp)
+set(A_LIBRARY_HEADERS include/take_home_test/helpers.h)
 
-add_library(helpers_library ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
+add_library(helpers_library ${A_LIBRARY_SOURCES} ${A_LIBRARY_HEADERS})
 
-set(LIBRARY_SOURCES source/take_home_test/serialize.cpp)
-set(LIBRARY_HEADERS include/take_home_test/serialize.h)
+set(B_LIBRARY_SOURCES source/take_home_test/deser.cpp)
+set(B_LIBRARY_HEADERS include/take_home_test/deser.h)
 
-add_library(serialize_library ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
-
-set(LIBRARY_SOURCES source/take_home_test/deserialize.cpp)
-set(LIBRARY_HEADERS include/take_home_test/deserialize.h)
-
-add_library(deserialize_library ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
+add_library(deser_library ${B_LIBRARY_SOURCES} ${B_LIBRARY_HEADERS})
 
 # exec sources go here
 set(EXEC_SOURCES source/main.cpp)
 
 add_executable(take_home_test ${EXEC_SOURCES})
-target_link_libraries(take_home_test helpers_library serialize_library deserialize_library)
+target_link_libraries(take_home_test helpers_library deser_library)
 
 # Tests
 enable_testing()
@@ -47,6 +42,6 @@ set(TEST_SOURCES test/tests.cpp)
 
 add_executable(unit_tests ${TEST_SOURCES})
 
-target_link_libraries(unit_tests take_home_test_library)
+target_link_libraries(unit_tests helpers_library deser_library)
 
 add_test(unit_tests unit_tests)
