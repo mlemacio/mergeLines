@@ -153,6 +153,19 @@ deser_library/fast:
 .PHONY : deser_library/fast
 
 #=============================================================================
+# Target rules for targets named line_merger_library
+
+# Build rule for target.
+line_merger_library: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 line_merger_library
+.PHONY : line_merger_library
+
+# fast build rule for target.
+line_merger_library/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_merger_library.dir/build.make CMakeFiles/line_merger_library.dir/build
+.PHONY : line_merger_library/fast
+
+#=============================================================================
 # Target rules for targets named take_home_test
 
 # Build rule for target.
@@ -250,6 +263,30 @@ source/take_home_test/helpers.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/helpers_library.dir/build.make CMakeFiles/helpers_library.dir/source/take_home_test/helpers.cpp.s
 .PHONY : source/take_home_test/helpers.cpp.s
 
+source/take_home_test/line_merger.o: source/take_home_test/line_merger.cpp.o
+.PHONY : source/take_home_test/line_merger.o
+
+# target to build an object file
+source/take_home_test/line_merger.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_merger_library.dir/build.make CMakeFiles/line_merger_library.dir/source/take_home_test/line_merger.cpp.o
+.PHONY : source/take_home_test/line_merger.cpp.o
+
+source/take_home_test/line_merger.i: source/take_home_test/line_merger.cpp.i
+.PHONY : source/take_home_test/line_merger.i
+
+# target to preprocess a source file
+source/take_home_test/line_merger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_merger_library.dir/build.make CMakeFiles/line_merger_library.dir/source/take_home_test/line_merger.cpp.i
+.PHONY : source/take_home_test/line_merger.cpp.i
+
+source/take_home_test/line_merger.s: source/take_home_test/line_merger.cpp.s
+.PHONY : source/take_home_test/line_merger.s
+
+# target to generate assembly for a file
+source/take_home_test/line_merger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_merger_library.dir/build.make CMakeFiles/line_merger_library.dir/source/take_home_test/line_merger.cpp.s
+.PHONY : source/take_home_test/line_merger.cpp.s
+
 test/tests.o: test/tests.cpp.o
 .PHONY : test/tests.o
 
@@ -285,6 +322,7 @@ help:
 	@echo "... test"
 	@echo "... deser_library"
 	@echo "... helpers_library"
+	@echo "... line_merger_library"
 	@echo "... take_home_test"
 	@echo "... unit_tests"
 	@echo "... source/main.o"
@@ -296,6 +334,9 @@ help:
 	@echo "... source/take_home_test/helpers.o"
 	@echo "... source/take_home_test/helpers.i"
 	@echo "... source/take_home_test/helpers.s"
+	@echo "... source/take_home_test/line_merger.o"
+	@echo "... source/take_home_test/line_merger.i"
+	@echo "... source/take_home_test/line_merger.s"
 	@echo "... test/tests.o"
 	@echo "... test/tests.i"
 	@echo "... test/tests.s"
