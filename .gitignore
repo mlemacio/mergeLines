@@ -3,3 +3,5 @@
 *.a
 take_home_test
 unit_tests
+Makefile
+test/assets/1-output.json
