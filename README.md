@@ -21,5 +21,6 @@ Things to look for:
     - Instead of processing each line one by one, wait for many and do similar operations in parallel (Helps i-cache)
 - Use of alignas()
     - Both the coord and line type are 32 or 64 byte aligned, ensuring ease of use with caching
+- Use of std::move() and generally moving objects through a pipeline instead of keeping references everywhere (Similar to Rust)
 
 
