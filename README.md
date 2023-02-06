@@ -12,3 +12,14 @@ This first example here illustrates a small demo version of this problem, in the
 The graph on the left represents the expected output after merging all the lines given in test/assets/1-split.json and the graph on the right represents the output of processing the input through the line merger. This is by no means conclusive evidence the merger works, but it does give us a quick thumbs up that we're roughly in the right ballpark. 
 
 
+Things to look for:
+- Use of rapidjson to deserialize json
+- Unique way of grouping/storying line segments
+    - Creating a hash key from slope and y-coord
+    - Storing references to a segment instead of making copies
+- Batching operations
+    - Instead of processing each line one by one, wait for many and do similar operations in parallel (Helps i-cache)
+- Use of alignas()
+    - Both the coord and line type are 32 or 64 byte aligned, ensuring ease of use with caching
+
+
