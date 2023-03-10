@@ -1,4 +1,6 @@
 # Line Merger
+Made with C++ and Cmake
+
 The premise of this project is that you are given, by JSON file, a list of lines that may or may not be connected at one coordinate and have the same slope. The task at hand is to take this list of lines, find all the lines that can be "merged" into one bigger line, and return the list of those merged lines
 
 When working on this, I soon realized how helpful it would be to visualize the input and output, as so we can quickly confirm the legitimacy of what we process, instead of looking at just a list of raw coordinates. 
@@ -19,6 +21,7 @@ Things to look for:
     - Storing references to a segment instead of making copies
 - Batching operations
     - Instead of processing each line one by one, wait for many and do similar operations in parallel (Helps i-cache)
+    - Makes it very easy to vectorize / utilize SIMD instructions in the future
 - Use of alignas()
     - Both the coord and line type are 32 or 64 byte aligned, ensuring ease of use with caching
 - Use of std::move() and generally moving objects through a pipeline instead of keeping references everywhere (Similar to Rust)
